@@ -5,6 +5,7 @@ class Reviews
     attr_accessor :title, :rating, :comments 
     @@all_reviews = 0
     def initialize(title)
+      @reviews = []
       @title = title
       @rating = []
       @comments = []
@@ -15,15 +16,16 @@ class Reviews
         @@all_reviews
     end
 
-    def rating(stars)
-        @rating << stars
+    def rating(rating)
+        @rating = rating
     end
 
     def comments(comments)
-        @comments << comments
+        @comments = comments
     end
 
     def display_book_review
+        puts "Your Book Review"
         puts "#{@title}"
         puts "#{@rating}"
         puts "Review: #{@comments}"
@@ -37,8 +39,8 @@ puts "Enter your book title: "
 title = gets.strip
 review = Reviews.new(title)
 puts "Choose your rating"
-stars = gets.to_i
-review.rating(stars)
+rating = gets.to_i
+review.rating(rating)
 puts "Enter your review"
 comments = gets.to_s
 review.comments(comments)

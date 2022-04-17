@@ -4,35 +4,49 @@ require "tty-prompt"
 
 
 #Local files required:
-require_relative './reviews.rb'
+# require_relative ("./review.rb")
+# require_relative ("./recommendationquiz.rb")
+# require_relative ("./readinglist.rb")
 
+prompt = TTY::Prompt.new
+system("clear")
 
-# class MainMenu
-#     def run 
-#         prompt = TTY::Prompt.new
-#         system("clear")
-#         welcome = prompt.select("Welcome to the book app!") do |menu|
-#             menu.choice 'New Book Review'
-#             menu.choice 'View Previous Reviews'
-#             menu.choice 'Take Recommendation Quiz'
-#             menu.choice 'Exit'
-#     end
+def select_option
+    answer = prompt.select("Please select an option:",["New Book Review", "View Reading List", "Take Recommendation Quiz", "Exit App"])
+    answer
+end
+system "clear"
+puts "Welcome to the Book App"
+option = ""
+while option !="Exit App"
+    option = select_option
+end
+            # menu.choice 'New Book Review'
+            # menu.choice 'View Reading List'
+            # menu.choice 'Take Recommendation Quiz'
+            # menu.choice 'Exit'
+
 
 #     if welcome == 'New Book Review'
-#         puts new_review
-#     elseif welcome == 'View Previous Reviews'
-#         puts previous_reviews
-#     elseif welcome == 'Take Recommencation Quiz'
+#         new_review
+#     elseif welcome == 'View Reading List'
+#         puts reading_list
+#     elseif welcome == 'Take Recommendation Quiz'
 #         puts recommendation_quiz
 #     else
 #         puts "Goodbye! Have a good day"
 #     end
 # end 
 
-# book_review = []
+# puts "Your book review details"
+# puts "Enter your book title: "
+# title = gets.chomp
+# puts "Enter your rating (out of 5): "
+# rating = gets.chomp
+# puts "Enter your review: "
+# review = gets.chomp
+# new_review = Reviews.new(title, rating, review)
 
-# book_review.each do |review|
-#     puts Review
-# end
 
-# puts "There are currently #{Reviews.all_reviews} book reviews"
+
+# puts readinglist.print_list
