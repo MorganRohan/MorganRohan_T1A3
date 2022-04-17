@@ -7,7 +7,7 @@ require "colorize"
 #Local files required:
 require_relative ("./review.rb")
 require_relative ("./recommendationquiz.rb")
-# require_relative ("./readinglist.rb")
+require_relative ("./readinglist.rb")
 
 $prompt = TTY::Prompt.new
 
@@ -34,8 +34,9 @@ end
 #Take user inputs and print result
 def view_list
     puts "Your Current Reading List!"
-    #displays stored list
+    puts readinglist.print_list
     puts "Let's add some titles..."
+    new_list = List.new(title, author) 
 end 
 
 #Define a method to start recommendation quiz
@@ -56,7 +57,8 @@ while option !="Exit App"
         review = new_review
         puts review.to_s
     when "Reading List"
-        print "Reading List"
+        list = view_list
+        puts list.reading_list
     when "Take Recommendation Quiz"
         quiz = recommendation_quiz
         puts quiz.run_quiz($questions)
