@@ -11,6 +11,7 @@ class Reviews
     end
 
     def to_s
+        puts "====================="
         puts "  Your Book Review"
         puts "====================="
         puts "Book Title: #{@title}"
