@@ -34,8 +34,12 @@ end
 #Take user inputs and print result
 def view_list
     puts "Your Current Reading List!"
-    puts readinglist.print_list
+    
     puts "Let's add some titles..."
+    puts "What is the book title?"
+    title = gets.chomp.to_s
+    puts "What is the book author?"
+    author = gets.chomp.to_s
     new_list = List.new(title, author) 
 end 
 
@@ -58,7 +62,7 @@ while option !="Exit App"
         puts review.to_s
     when "Reading List"
         list = view_list
-        puts list.reading_list
+        puts list.list_builder(title, author)
     when "Take Recommendation Quiz"
         quiz = recommendation_quiz
         puts quiz.run_quiz($questions)

@@ -8,12 +8,13 @@ class List
     @author = author
   end
 
-  def print_list
-    @list.each do |entry|
-      list
+
+  def list_builder(title, author)
+    list = Hash.new
+    title.each_with_index do |title, author|
+      hash[title] = hash[author]
+    puts list
     end
   end
-
- 
+  
 end
-
