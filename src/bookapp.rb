@@ -9,24 +9,21 @@ require_relative ("./review.rb")
 require_relative ("./recommendationquiz.rb")
 require_relative ("./readinglist.rb")
 
-$prompt = TTY::Prompt.new
-
-def select_option
-    answer = $prompt.select("Please select an option:",["New Book Review", "Reading List", "Take Recommendation Quiz", "Exit App"])
-    answer
-end
-
 #Define a method to get input for new review
 #Print format of review defined in review class
 def new_review 
     puts "Your book review details"
+    sleep 1
     puts "Enter your book title: "
     title = gets.chomp
+    sleep 1
     puts "Enter your rating (out of 5): "
     rating = gets.chomp
+    sleep 1
     puts "Enter your review: "
     review = gets.chomp
-    book_review = Reviews.new(title, rating, review)
+    sleep 1
+    new_review = Reviews.new(title, rating, review)
 end
 
 #Define a method to open the reading list
@@ -34,13 +31,15 @@ end
 #Take user inputs and print result
 def view_list
     puts "Your Current Reading List!"
-    
     puts "Let's add some titles..."
+    sleep 1
     puts "What is the book title?"
     title = gets.chomp.to_s
     puts "What is the book author?"
     author = gets.chomp.to_s
-    new_list = List.new(title, author) 
+    list = [title, author]
+    books = list.push(title, author)
+    new_list = List.new(title, author, books, list) 
 end 
 
 #Define a method to start recommendation quiz
@@ -51,18 +50,52 @@ def recommendation_quiz
     new_quiz = Quiz.new($questions)
 end
 
+$prompt = TTY::Prompt.new
+def main_menu
+    answer = $prompt.select("Please select an option:",["New Book Review", "Reading List", "Take Recommendation Quiz", "Exit App"])
+    answer
+end
+
 system "clear"
 puts "Welcome to the Book App"
 option = ""
 while option !="Exit App"
-    option = select_option
+    option = main_menu
     case option
     when "New Book Review"
         review = new_review
         puts review.to_s
+        def review_menu
+            answer = $prompt.select("Would you like to add another review?",["Yes", "No"])
+            answer
+        end
+        while option!= "No"
+            option = review_menu
+            case option
+                when "Yes"
+                    review = new_review
+                    puts review.to_s
+                else
+                    next
+                end
+            end 
     when "Reading List"
         list = view_list
-        puts list.list_builder(title, author)
+        puts list.to_s
+        def list_menu
+            answer = $prompt.select("Would you like to add more list items?",["Yes", "No"])
+            answer
+        end
+        while option!= "No"
+            option = list_menu
+            case option
+                when "Yes"
+                    books = view_list
+                    puts books.to_s
+                else
+                next
+                end
+            end
     when "Take Recommendation Quiz"
         quiz = recommendation_quiz
         puts quiz.run_quiz($questions)
