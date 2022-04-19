@@ -3,11 +3,9 @@
 # Objects: title, author
 class List
   attr_accessor :title, :author
-  def initialize(title, author, books, list)
+  def initialize(title, author)
     @title = title
     @author = author
-    @books = books
-    @list = list
   end
 
   def to_s

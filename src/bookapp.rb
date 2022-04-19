@@ -46,19 +46,32 @@ end
 #Define a method to open the reading list
 #Run new list item method from readinglist file 
 #Take user inputs and print result
-def view_list
+def add_list
     puts "Your Current Reading List!"
     puts "Let's add some titles..."
     sleep 1
     puts "What is the book title?"
     title = gets.chomp.to_s
+    sleep 1
     puts "What is the book author?"
     author = gets.chomp.to_s
-    list = [title, author]
-    books = list.push(title, author)
-    newlist = List.new(title, author, books, list) 
-    puts newlist
+    list_entry = List.new(title, author) 
+    puts list_entry.to_s
+    open("readinglist.txt", 'a') {|f|
+    f << "\n===============\n"
+    f << "New Book To Read!\n"
+    f << "===============\n" 
+    f << "Title: #{title}\n"
+    f << "===============\n" 
+    f << "Author: #{author} \n"
+    f << "===============\n" 
+}
 end 
+
+def display_reading_list
+    reading_list = File.read("readinglist.txt").split
+    puts reading_list
+end
 
 #Define a method to start recommendation quiz
 #Welcome to the quiz statement and input specification
@@ -74,7 +87,7 @@ def review_menu
 end
 
 def list_menu
-    answer = $prompt.select("Would you like to add more list items?",["Yes", "No"])
+    answer = $prompt.select("Would you like to add more list items?",["Yes", "No", "View List"])
     answer
 end
 
@@ -104,14 +117,14 @@ while option !="Exit App"
                 end
             end 
     when "Reading List"
-        list = view_list
-        puts list.to_s
+        add_list
         while option!= "No"
             option = list_menu
             case option
                 when "Yes"
-                    books = view_list
-                    puts books.to_s
+                    add_list
+                when "View List"
+                    display_reading_list
                 else
                     puts "Back to main menu it is!"
                 end
@@ -124,8 +137,7 @@ while option !="Exit App"
             option = list_menu
             case option
                 when "Yes"
-                    books = view_list
-                    puts books.to_s
+                    add_list
                 else
                     puts "Back to main menu it is!"
                 end

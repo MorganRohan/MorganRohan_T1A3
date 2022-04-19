@@ -3,12 +3,11 @@
 # Objects: title, rating, review
 
 class Reviews
-    attr_accessor :title, :rating, :review, :allreviews
+    attr_accessor :title, :rating, :review
     def initialize(title, rating, review)
         @title = title
         @rating = rating
         @review = review
-        @allreviews = []
     end
 
     def to_s
