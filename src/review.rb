@@ -3,11 +3,12 @@
 # Objects: title, rating, review
 
 class Reviews
-    attr_accessor :title, :rating, :review
+    attr_accessor :title, :rating, :review, :allreviews
     def initialize(title, rating, review)
         @title = title
         @rating = rating
         @review = review
+        @allreviews = []
     end
 
     def to_s
@@ -19,5 +20,6 @@ class Reviews
         puts "Rating: #{@rating}/5"
         puts "====================="
         puts "Review: #{@review}"
-    end
+    end 
 end
+

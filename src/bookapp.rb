@@ -15,15 +15,32 @@ def new_review
     puts "Your book review details"
     sleep 1
     puts "Enter your book title: "
-    title = gets.chomp
+    title = gets.chomp.to_s
     sleep 1
     puts "Enter your rating (out of 5): "
-    rating = gets.chomp
+    rating = gets.chomp.to_s
     sleep 1
     puts "Enter your review: "
-    review = gets.chomp
+    review = gets.chomp.to_s
     sleep 1
     new_review = Reviews.new(title, rating, review)
+    puts new_review.to_s
+    open("reviews.txt", 'a') {|f|
+    f << "\n===============\n"
+    f << "Your Book Review\n"
+    f << "===============\n" 
+    f << "Title: #{title}\n"
+    f << "===============\n" 
+    f << "Rating: #{rating}/5 \n"
+    f << "===============\n" 
+    f << "Comments: #{review}\n"
+    f << "==============="
+}
+end
+
+def display_all_reviews
+    all_reviews = File.read("reviews.txt").split
+    puts all_reviews
 end
 
 #Define a method to open the reading list
@@ -39,7 +56,8 @@ def view_list
     author = gets.chomp.to_s
     list = [title, author]
     books = list.push(title, author)
-    new_list = List.new(title, author, books, list) 
+    newlist = List.new(title, author, books, list) 
+    puts newlist
 end 
 
 #Define a method to start recommendation quiz
@@ -51,7 +69,7 @@ def recommendation_quiz
 end
 
 def review_menu
-    answer = $prompt.select("Would you like to add another review?",["Yes", "No"])
+    answer = $prompt.select("Would you like to add another review?",["Yes", "No", "View All Reviews"])
     answer
 end
 
@@ -73,14 +91,14 @@ while option !="Exit App"
     option = main_menu
     case option
     when "New Book Review"
-        review = new_review
-        puts review.to_s
+        new_review
         while option!= "No"
             option = review_menu
             case option
                 when "Yes"
-                    review = new_review
-                    puts review.to_s
+                    new_review
+                when "View All Reviews"
+                    display_all_reviews
                 else
                     puts "Back to main menu it is!"
                 end
