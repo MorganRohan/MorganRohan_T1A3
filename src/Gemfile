@@ -7,3 +7,9 @@ source "https://rubygems.org"
 gem "colorize", "~> 0.8.1"
 
 gem "tty-prompt", "~> 0.23.1"
+
+gem "rubocop"
+
+gem "artii"
+
+gem "tty-font"

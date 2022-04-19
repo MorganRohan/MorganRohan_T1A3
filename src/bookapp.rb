@@ -50,6 +50,16 @@ def recommendation_quiz
     new_quiz = Quiz.new($questions)
 end
 
+def review_menu
+    answer = $prompt.select("Would you like to add another review?",["Yes", "No"])
+    answer
+end
+
+def list_menu
+    answer = $prompt.select("Would you like to add more list items?",["Yes", "No"])
+    answer
+end
+
 $prompt = TTY::Prompt.new
 def main_menu
     answer = $prompt.select("Please select an option:",["New Book Review", "Reading List", "Take Recommendation Quiz", "Exit App"])
@@ -65,10 +75,6 @@ while option !="Exit App"
     when "New Book Review"
         review = new_review
         puts review.to_s
-        def review_menu
-            answer = $prompt.select("Would you like to add another review?",["Yes", "No"])
-            answer
-        end
         while option!= "No"
             option = review_menu
             case option
@@ -76,16 +82,12 @@ while option !="Exit App"
                     review = new_review
                     puts review.to_s
                 else
-                    next
+                    puts "Back to main menu it is!"
                 end
             end 
     when "Reading List"
         list = view_list
         puts list.to_s
-        def list_menu
-            answer = $prompt.select("Would you like to add more list items?",["Yes", "No"])
-            answer
-        end
         while option!= "No"
             option = list_menu
             case option
@@ -93,12 +95,23 @@ while option !="Exit App"
                     books = view_list
                     puts books.to_s
                 else
-                next
+                    puts "Back to main menu it is!"
                 end
             end
     when "Take Recommendation Quiz"
         quiz = recommendation_quiz
         puts quiz.run_quiz($questions)
+        puts "Now that you've gotten recommendations, would you like to add a new title to your Reading List?"
+        while option!= "No"
+            option = list_menu
+            case option
+                when "Yes"
+                    books = view_list
+                    puts books.to_s
+                else
+                    puts "Back to main menu it is!"
+                end
+            end
     else
         puts "Sad to see you go. See you next time!"
         next
