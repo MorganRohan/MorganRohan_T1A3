@@ -7,11 +7,11 @@ require "artii"
 require "pastel"
 
 #Local files required:
-require_relative ("./review.rb")
-require_relative ("./recommendationquiz.rb")
-require_relative ("./readinglist.rb")
-require_relative ("./styling.rb")
-require_relative ("./errorhandling.rb")
+require_relative ("files/review.rb")
+require_relative ("files/recommendationquiz.rb")
+require_relative ("files/readinglist.rb")
+require_relative ("files/styling.rb")
+require_relative ("files/errorhandling.rb")
 
 #Define a method to get input for new review
 #Print format of review defined in review class
@@ -142,14 +142,34 @@ def main_menu
     answer
 end
 
-system "clear"
+def main_help
+    puts "Hello!"
+    puts "If you're having trouble downloading or running the app, please refer to the provided README.md"
+    puts "If you haven't read that first, the app may not execute properly"
+end
+
+
+if ARGV.include? '--help'
+    main_help
+end
+
+if ARGV.length > 0
+    name = ARGV[0]
+   else
+   name= "User"
+   end
 main_welcome
+puts "Hello #{name}, this is the BookShelf App!"
+puts "From the options below you, #{name}, can choose to write a book review, add an item to your reading list or take a quiz for a recommendation"
+puts "Of course, if you wish to leave at any time, simply choose the Exit App option"
+main_menu
 option = ""
 while option !="Exit App"
     option = main_menu
     case option
     when "New Book Review"
         reviews_heading
+        sleep 1
         new_review
         while option!= "No"
             option = review_menu
@@ -168,7 +188,7 @@ while option !="Exit App"
             end 
     when "Reading List"
         list_heading
-        sleep
+        sleep 1
         add_list
         while option!= "No"
             option = list_menu
@@ -207,7 +227,7 @@ while option !="Exit App"
                 end
             end
     else
-        puts "Sad to see you go. See you next time!".light_yellow
+        puts "Sad to see you go #{name}. See you next time!".light_yellow
         next
     end
     print "Press enter to continue..."

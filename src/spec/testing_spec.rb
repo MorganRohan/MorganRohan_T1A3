@@ -1,8 +1,8 @@
 # RSPEC tests to be run on features of app
 require "rspec/autorun"
 
-require_relative ("../errorhandling.rb")
-require_relative ("../recommendationquiz.rb")
+require_relative ("../files/errorhandling.rb")
+require_relative ("../files/recommendationquiz.rb")
 
 #For the review class, we look at running a test to determine if entering the rating
 #Each case is set up to test a different set of answers against the methods and class
