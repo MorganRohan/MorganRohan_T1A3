@@ -10,6 +10,7 @@ class Quiz
     @score = score
  end
 
+#Establish quiz questions to be iterated through
     q1 = "Which setting sounds the best?\n (a) On a planet in an alternate reality, maybe there's spaceships zooming by\n (b) Historical, like Regency Era London, with carriages"   
     q2 = "If you were a main character, who would you want to be?\n (a) A lone gunslinger type, out for retribution\n (b) A Viscount looking to find a wife"
     q3 = "You have to pick only one:\n (a) A Journey \n (b) Romance"
@@ -23,9 +24,14 @@ class Quiz
         Quiz.new(q4),
         Quiz.new(q5)
     ]
-
+#Assign questions to a global variable, as they are set and unchanged regardless of user input
     questions = $questions
 
+#Define a method to run the quiz, making use of a for loop since the number of loops is known (5, since there are 5 questions)
+#Gets user input for the response and validates this input using the validate_input method
+#A new sub loop is established for invalid input, it is broken by a correct and valid input
+#Based on the user input of a or b, the score will either stay as is or have a point added
+#Conditionals are then used to compare this score against predetermined measures and the recommendations are printed
     def run_quiz(questions)
         answer = []
         score = 0

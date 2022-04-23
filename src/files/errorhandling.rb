@@ -7,6 +7,8 @@ end
 #Invalid input error handling for book review
 #Whilst it is set up to type coerce the input to a string to print, input types are preferred for validity of review
 #Title and comments will allow for input type of string, whereas rating will be given input type of integer
+#The returned value will prompt the new_review method to either continue from the rating and get the review information
+# or it will loop through until a valid entry has been inputted
 def invalid_rating_input(rating)
     case rating.to_i
     when 1
@@ -27,6 +29,8 @@ end
 
 #Invalid input error handling for recommendation quiz
 #Set up to only deal with either 'a' or 'b' options and will prompt user to do so
+#If invalid, print error message to the screen and return a nil value
+# nil value with be used within the run_quiz method to loop through that question until a valid response is entered
 def validate_input(answer)
     case answer[0]
     when "a"
