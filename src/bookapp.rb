@@ -11,15 +11,18 @@ require_relative ("./review.rb")
 require_relative ("./recommendationquiz.rb")
 require_relative ("./readinglist.rb")
 require_relative ("./styling.rb")
+require_relative ("./errorhandling.rb")
 
 #Define a method to get input for new review
 #Print format of review defined in review class
 def new_review 
     puts "Let's start a new book review!".blue
+    puts "Please only enter words in text format and your review as a number!".blue
     puts "Your book review details".blue
     sleep 1
     puts "Enter your book title: ".blue
     title = gets.chomp.to_s
+    invalid_title_input(title)
     sleep 1
     puts "Enter your rating (out of 5): ".blue
     rating = gets.chomp.to_s
@@ -60,6 +63,7 @@ def add_list
     puts "Let's add some titles...".blue
     sleep 1
     puts "What is the book title?".blue
+    puts "Please only enter text words, so your review makes sense!".blue 
     title = gets.chomp.to_s
     sleep 1
     puts "What is the book author?".blue

@@ -1,6 +1,8 @@
 # Recommendation Quiz
 # Class: Quiz
 # Objects: prompt, score
+require_relative ("./errorhandling.rb")
+
 class Quiz
  attr_accessor :prompt, :score
  def initialize(prompt)
@@ -29,13 +31,21 @@ class Quiz
         score = 0
         for question in questions
             puts question.prompt
-            answer = gets.chomp.to_s
-        if answer == "a"
+            answer = STDIN.gets.to_s
+            response = validate_input(answer)
+        if response == nil
+            loop do 
+            puts question.prompt
+            answer = STDIN.gets.to_s
+            response = validate_input(answer)
+        break if response == "a" or response == "b"
+        if response == "a"
             score += 1
-        end
-        if answer == "b"
+        else response == "b"
             score += 0
         end
+    end
+    end
     end
     puts ("You got " + score.to_s)
     if score >= 3
