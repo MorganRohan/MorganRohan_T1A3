@@ -31,14 +31,14 @@ class Quiz
         score = 0
         for question in questions
             puts question.prompt
-            answer = STDIN.gets.to_s
+            answer = STDIN.gets.strip
             response = validate_input(answer)
         if response == nil
             loop do 
-            puts question.prompt
-            answer = STDIN.gets.to_s
-            response = validate_input(answer)
-        break if response == "a" or response == "b"
+                puts question.prompt
+                answer = STDIN.gets.strip
+                response = validate_input(answer)
+            break if response == "a" or response == "b"
         if response == "a"
             score += 1
         else response == "b"

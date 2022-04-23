@@ -21,14 +21,38 @@ def new_review
     puts "Your book review details".blue
     sleep 1
     puts "Enter your book title: ".blue
-    title = gets.chomp.to_s
-    invalid_title_input(title)
+    title = STDIN.gets.to_s
+    # invalid_title_input(title)
     sleep 1
     puts "Enter your rating (out of 5): ".blue
-    rating = gets.chomp.to_s
+    rating = STDIN.gets
+    stars = invalid_rating_input(rating)
+    if stars == nil
+        loop do
+            puts "Enter your rating (out of 5): ".blue
+            rating = STDIN.gets
+            stars = invalid_rating_input(rating)
+            break if stars == 1 or stars == 2 or stars == 3 or stars == 4 or stars == 5 
+        if stars == 1
+            rating == 1
+        if stars ==2
+            rating == 2
+        if stars == 3
+            rating == 3 
+        if stars == 4
+            rating == 4
+        else stars == 5 
+            rating == 5
+        end
+        end
+        end
+        end
+        end
+    end
     sleep 1
     puts "Enter your review: ".blue 
-    review = gets.chomp.to_s
+    review = STDIN.gets.to_s
+    # invalid_review_input(review)
     sleep 1
     new_review = Reviews.new(title, rating, review)
     puts new_review.to_s

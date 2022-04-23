@@ -8,7 +8,21 @@ end
 #Whilst it is set up to type coerce the input to a string to print, input types are preferred for validity of review
 #Title and comments will allow for input type of string, whereas rating will be given input type of integer
 def invalid_rating_input(rating)
-    case rating[0]
+    case rating.to_i
+    when 1
+        return 1
+    when 2
+        return 2
+    when 3
+        return 3
+    when 4
+        return 4
+    when 5
+        return 5
+    else
+        puts "Invalid input, please only put a number between 1-5"
+        return nil
+    end
 end
 
 #Invalid input error handling for recommendation quiz
