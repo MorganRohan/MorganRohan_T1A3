@@ -81,14 +81,14 @@ end
 #Run new list item method from readinglist file 
 #Take user inputs and print result
 def add_list
-    puts "This is your reading list, where you can add all the titles you want to read!".blue
-    puts "Let's add some titles...".blue
+    puts "This is your reading list, where you can add all the titles you want to read!".green
+    puts "Let's add some titles...".green
     sleep 1
-    puts "What is the book title?".blue
-    puts "Please only enter text words, so your review makes sense!".blue 
+    puts "What is the book title?".green
+    puts "Please only enter text words, so your review makes sense!".green
     title = gets.chomp.to_s
     sleep 1
-    puts "What is the book author?".blue
+    puts "What is the book author?".green
     author = gets.chomp.to_s
     list_entry = List.new(title, author) 
     puts list_entry.to_s

@@ -11,7 +11,7 @@ require "colorize"
 def main_welcome
     font = TTY::Font.new(:doom)
     pastel = Pastel.new
-    puts pastel.magenta(font.write("Welcome to the BookShelf App!"))
+    puts pastel.magenta.on_white(font.write("Welcome to the BookShelf App!"))
 end
 
 def reviews_heading
@@ -26,13 +26,14 @@ end
 
 def quiz_heading
     arter = Artii::Base.new
+    pastel = Pastel.new
     puts arter.asciify("Welcome....").red
     sleep 1
     puts arter.asciify("To....").red
     sleep 1
     puts arter.asciify("The...").red
     sleep 1
-    puts arter.asciify("...Recommendation Quiz!").red
+    puts pastel.white.on_red(arter.asciify("...Recommendation Quiz!"))
 end
 
 def exit_message
