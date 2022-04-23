@@ -28,7 +28,7 @@ end
 #Invalid input error handling for recommendation quiz
 #Set up to only deal with either 'a' or 'b' options and will prompt user to do so
 def validate_input(answer)
-    case answer[0].downcase
+    case answer[0]
     when "a"
         return "a"
     when "b"
