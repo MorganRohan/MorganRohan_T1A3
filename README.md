@@ -72,7 +72,8 @@ The section below contains screenshots from the final version of the application
 
 # Implementation Plan
 ## Control Flow Diagram
-![Control Flow Diagram](docs/control_flow_for_terminalapp.jpeg)
+Control flow diagram, showing flow of user experience in app, along with the various loops and redirections that need to occur.
+![Control Flow Diagram](docs/control_flow_diagram.jpeg)
 ## Overall App
 For the implementation of this project, a Trello board was utiilised heavily to plan, keep track of and execute all the required elements. A link to this board can be found below:
 https://trello.com/b/JWDhK0j2/terminal-app
