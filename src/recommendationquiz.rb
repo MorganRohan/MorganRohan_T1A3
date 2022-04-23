@@ -33,21 +33,27 @@ class Quiz
             puts question.prompt
             answer = STDIN.gets.strip
             response = validate_input(answer)
-        if response == nil
-            loop do 
-                puts question.prompt
-                answer = STDIN.gets.strip
-                response = validate_input(answer)
-            break if response == "a" or response == "b"
-        if response == "a"
-            score += 1
-        else response == "b"
-            score += 0
+            if response == nil
+                loop
+                    puts question.prompt
+                    answer = STDIN.gets.strip
+                    validate_input(answer)
+                    break if response == "a" or response == "b"
+                    if response == "a"
+                        score +=1
+                    if response == "b"
+                        score +=0
+                    end
+                end
+            end
+            if response == "a"
+            score +=1
+            if response == "b"
+            score +=0
+            end
         end
     end
-    end
-    end
-    puts ("You got " + score.to_s)
+    puts "Your score is #{score}"
     if score >= 3
         puts "You would most like a sci fi book!"
         puts "Maybe:"
@@ -59,5 +65,5 @@ class Quiz
         romance = ["The Viscount Who Loved Me by Julia Quinn", "Beach Read by Emily Henry", "The Younger Wife by Sally Hepworth", "Suitors and Sabotage by Cindy Anstey", "Bringing Down The Duke by Evie Dunmore"]
         puts romance 
     end
-    end
+end
 end

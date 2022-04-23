@@ -22,7 +22,6 @@ def new_review
     sleep 1
     puts "Enter your book title: ".blue
     title = STDIN.gets.to_s
-    # invalid_title_input(title)
     sleep 1
     puts "Enter your rating (out of 5): ".blue
     rating = STDIN.gets
@@ -52,7 +51,6 @@ def new_review
     sleep 1
     puts "Enter your review: ".blue 
     review = STDIN.gets.to_s
-    # invalid_review_input(review)
     sleep 1
     new_review = Reviews.new(title, rating, review)
     puts new_review.to_s
@@ -170,6 +168,7 @@ while option !="Exit App"
             end 
     when "Reading List"
         list_heading
+        sleep
         add_list
         while option!= "No"
             option = list_menu
@@ -183,7 +182,7 @@ while option !="Exit App"
                 when "Delete All List Entries"
                     delete_all_list
                 else
-                    puts "Back to main menu it is!"
+                    puts "Back to main menu it is!".magenta
                 end
             end
     when "Take Recommendation Quiz"
@@ -204,11 +203,11 @@ while option !="Exit App"
                 when "Delete All List Entries"
                     delete_all_list
                 else
-                    puts "Back to main menu it is!"
+                    puts "Back to main menu it is!".magenta
                 end
             end
     else
-        puts "Sad to see you go. See you next time!"
+        puts "Sad to see you go. See you next time!".light_yellow
         next
     end
     print "Press enter to continue..."
