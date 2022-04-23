@@ -1,4 +1,4 @@
- 
+
 ===============
 Your Book Review
 ===============
@@ -8,6 +8,6 @@ Title: Lolita
 Rating: 4
 /5 
 ===============
-Comments: Good
+Comments: Vladimir Nabokov
 
 ===============

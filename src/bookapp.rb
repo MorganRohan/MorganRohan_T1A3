@@ -19,7 +19,6 @@ def new_review
     puts "Let's start a new book review!".blue
     puts "Please only enter words in text format and your review as a number!".blue
     puts "Your book review details".blue
-    sleep 1
     puts "Enter your book title: ".blue
     title = STDIN.gets.to_s
     sleep 1
@@ -82,10 +81,10 @@ end
 #Take user inputs and print result
 def add_list
     puts "This is your reading list, where you can add all the titles you want to read!".green
+    puts "Please only enter text words, so your entry makes sense!".green
     puts "Let's add some titles...".green
     sleep 1
     puts "What is the book title?".green
-    puts "Please only enter text words, so your review makes sense!".green
     title = gets.chomp.to_s
     sleep 1
     puts "What is the book author?".green

@@ -1,8 +1,8 @@
- 
+
 ===============
 New Book To Read!
 ===============
-Title: Lolita
+Title: Pride and Prejudice
 ===============
-Author: Frank 
+Author: Jane Austen 
 ===============

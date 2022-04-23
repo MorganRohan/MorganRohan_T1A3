@@ -53,7 +53,6 @@ class Quiz
             end
         end
     end
-    puts "Your score is #{score}"
     if score >= 3
         puts "You would most like a sci fi book!"
         puts "Maybe:"
