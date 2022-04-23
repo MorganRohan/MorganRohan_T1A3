@@ -10,6 +10,8 @@ class Reviews
         @review = review
     end
 
+#Define a method to print the user input information back on the screen in a formatted and meaningful way
+#Variables @title, @rating and @review are gathered by the new_review method and then formatted here
     def to_s
         puts "====================="
         puts "  Your Book Review"
