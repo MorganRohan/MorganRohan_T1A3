@@ -146,22 +146,23 @@ def main_help
     puts "Hello!"
     puts "If you're having trouble downloading or running the app, please refer to the provided README.md"
     puts "If you haven't read that first, the app may not execute properly"
+    exit
 end
 
 
-if ARGV.include? '--help'
+if ARGV.first == '--help'
     main_help
 end
 
 if ARGV.length > 0
     name = ARGV[0]
-   else
+else
    name= "User"
    end
 main_welcome
-puts "Hello #{name}, this is the BookShelf App!"
-puts "From the options below you, #{name}, can choose to write a book review, add an item to your reading list or take a quiz for a recommendation"
-puts "Of course, if you wish to leave at any time, simply choose the Exit App option"
+puts "Hello #{name}, this is the BookShelf App!".light_yellow
+puts "From the options below you, #{name}, can choose to write a book review, add an item to your reading list or take a quiz for a recommendation".light_yellow
+puts "Of course, if you wish to leave at any time, simply choose the Exit App option".light_yellow
 main_menu
 option = ""
 while option !="Exit App"
