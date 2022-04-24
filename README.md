@@ -48,13 +48,22 @@ Our example user, Michelle (she/her), will follow the instructions to download a
 ## Book Reviews
 Having chosen New Review from the main menu, the user will be prompted to create a new review. They will have the opportunity to input the book title, select a star rating to give to the book and then add any additional comments or review. This review will be formatted and printed to the screen. The user then has the option to create another review, print all existing reviews, delete all existing reviews or exit to the main menu. It will be implemented using a class called Review, which initializes variables for user input and contains the format for the final review to be printed in. 
 
+For the methods associated with this class, a variety of functions will be used, including an if conditional for inputting the review, a loop for managing the validity of input and open and writing a file. This is outlined in further detail in the Trello board card checklist for the elements in this class.
+
 
 ## Reading List
 Having chosen Reading List from the main menu, the user will be prompted to create a new list entry. They will have the opportunity to input the book title, along with the book author. This entry will be formatted and printed to the screen. The user then has the option to create another entry, view all existing entries, delete all existing entries or exit to the main menu. It will be implemented using a class called List and will initialize variables for user input and contains the format for the list entries. 
 
+For the methods associated with this class, a variety of functions will be used, including file read and write, as well as formating methods by type coercion. This is outlined in further detail in the Trello board card checklist for the elements in this class. 
+
 
 ## Recommendation Quiz
 Having chosen Recommendation Quiz from the main menu, the user will start the quiz. They will be prompted to answer a series of questions, inputting their preference for each one. Based on their overall score, a recommended genre and list of titles will be printed to the screen. The user then has the option to create a new list entry or exit to main menu. It will be implemented using a class called Quiz and will initialize variables for user input, store the quiz questions along with their recommendations and the method to run the quiz. 
+
+For the methods associated with this class, a variety of functions will be used, including a for loop, with a sub loop using if statements to determine validity, with further conditional statements to print output. This is outlined in further detail in the Trello board card checklist for the elements in this class.
+
+### Main App Page
+Whilst not a feature, the main app page brings togther the features for a pleasent and easy to user interface. Within this page, methods are defined primarily for the menu and output functions required. The menus are primarily managed by the TTY-prompt gem, but have while loops defined to determine which methods are invoked based on menu selection. This is outlined in further detail in the Trello board cards for each of the elements incorporated. 
 
 # User Experience
 
